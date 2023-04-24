@@ -1,0 +1,30 @@
+{% load static %}
+
+<!doctype html>
+
+<html>
+<head>
+    <title>
+    {% block title %}{% endblock title %}
+    </title>
+</head>
+<body>
+    <header>
+        <nav>
+            {% if user.is_authenticated %}
+                Hello, {{ user.username }}
+                {% comment %} <a href="{% url 'logout' %}">Logout</a> {% endcomment %}
+
+            {% else %}
+                {% comment %} <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a> {% endcomment %}
+
+            {% endif %}
+        </nav>
+    </header>
+    {% block content %}{% endblock content %}
+    <footer>
+
+    </footer>
+</body>
+</html>
