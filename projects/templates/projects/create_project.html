@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Create Project
+{% endblock title %}
+
+{% block content %}
+    <header>
+        <nav>
+            {% comment %} {% if user.is_authenticated %}
+                <a href="{% url 'create_receipt' %}">Create Receipt</a>
+                <a href="{% url 'categories' %}">Categories</a>
+                <a href="{% url 'accounts' %}">Accounts</a>
+                <a href="{% url 'create_category' %}">Create Category</a>
+                <a href="{% url 'create_account' %}">Create Account</a>
+            {% endif %} {% endcomment %}
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Create a new project</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Create</button>
+            </form>
+        </div>
+    </main>
+
+{% endblock content %}

@@ -20,10 +20,10 @@
         <div>
             <h1>My projects</h1>
             <p>
-                {% comment %} <a href="{% url 'todo_list_create' %}">Create a new list</a>
-                <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
+                <a href="{% url 'create_project' %}">Create a new project</a>
+                {% comment %} <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
             </p>
-            {% if projects.count == 0 %}
+            {% if projects == None %}
                 You are not assigned to any projects
             {% else %}
                 <table class="list-projects-table">
