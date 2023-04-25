@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-            {% comment %} {% if user.is_authenticated %}
+            {% if user.is_authenticated %}
                 Hello, {{ user.username }}
                 <a href="{% url 'logout' %}">Logout</a>
 
@@ -19,7 +19,7 @@
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'signup' %}">Signup</a>
 
-            {% endif %} {% endcomment %}
+            {% endif %}
         </nav>
     </header>
     {% block content %}{% endblock content %}
