@@ -11,15 +11,15 @@
 <body>
     <header>
         <nav>
-            {% if user.is_authenticated %}
+            {% comment %} {% if user.is_authenticated %}
                 Hello, {{ user.username }}
-                {% comment %} <a href="{% url 'logout' %}">Logout</a> {% endcomment %}
+                <a href="{% url 'logout' %}">Logout</a>
 
             {% else %}
-                {% comment %} <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'signup' %}">Signup</a> {% endcomment %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
 
-            {% endif %}
+            {% endif %} {% endcomment %}
         </nav>
     </header>
     {% block content %}{% endblock content %}

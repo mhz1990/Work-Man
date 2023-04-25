@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Receipts
+{% endblock title %}
+
+{% block content %}
+    <header>
+        <nav>
+            {% comment %} {% if user.is_authenticated %}
+                <a href="{% url 'create_receipt' %}">Create Receipt</a>
+                <a href="{% url 'categories' %}">Categories</a>
+                <a href="{% url 'accounts' %}">Accounts</a>
+                <a href="{% url 'create_category' %}">Create Category</a>
+                <a href="{% url 'create_account' %}">Create Account</a>
+            {% endif %} {% endcomment %}
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>My projects</h1>
+            <p>
+                {% comment %} <a href="{% url 'todo_list_create' %}">Create a new list</a>
+                <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
+            </p>
+            {% if projects.count == 0 %}
+                You are not assigned to any projects
+            {% else %}
+                <table class="project_list-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of tasks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for list in list_projects %}
+                            <tr>
+                                <td><a href="{% url 'list_projects' list.id %}">{{ list.name }}</td>
+                                <td>{{ list.items.count }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </main>
+
+{% endblock content %}
