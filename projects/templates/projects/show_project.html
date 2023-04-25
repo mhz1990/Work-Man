@@ -18,30 +18,35 @@
     </header>
     <main>
         <div>
-            <h1>My projects</h1>
+            <h1>{{ show_project.name }}</h1>
             <p>
-                <a href="{% url 'create_project' %}">Create a new project</a>
+                <a href="{% url 'create_task' %}">Create a new task</a>
+                {% comment %} <a href="{% url 'create_project' %}">Create a new project</a> {% endcomment %}
                 {% comment %} <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
             </p>
-            {% if projects == None %}
-                You are not assigned to any projects
-            {% else %}
-                <table class="list-projects-table">
+            {% if tasks != None %}
+                <table class="show_project-table">
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Number of tasks</th>
+                            <th>Assignee</th>
+                            <th>Start date</th>
+                            <th>Due date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for list in list_projects %}
+                        {% for list in show_project.items.all %}
                             <tr>
-                                <td><a href="{% url 'projects.viewsshow_project' list.id %}">{{ list.name }}</td>
-                                <td>{{ project.tasks.all|length }}</td>
+                                <td><a href="{% url 'show_project' list.id %}">{{ list.name }}</td>
+                                <td>{{ list.assignee }}</td>
+                                <td>{{ list.start_date }}</td>
+                                <td>{{ list.due_date }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+            {% else %}
+                This project has no tasks
             {% endif %}
         </div>
     </main>
