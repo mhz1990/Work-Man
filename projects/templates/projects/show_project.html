@@ -24,7 +24,7 @@
                 {% comment %} <a href="{% url 'create_project' %}">Create a new project</a> {% endcomment %}
                 {% comment %} <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
             </p>
-            {% if tasks != None %}
+            {% comment %} {% if tasks != None %} {% endcomment %}
                 <table class="show_project-table">
                     <thead>
                         <tr>
@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for list in show_project.items.all %}
+                        {% for list in list_projects.items.all %}
                             <tr>
                                 <td><a href="{% url 'show_project' list.id %}">{{ list.name }}</td>
                                 <td>{{ list.assignee }}</td>
@@ -49,9 +49,9 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            {% else %}
+            {% comment %} {% else %}
                 This project has no tasks
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
     </main>
 

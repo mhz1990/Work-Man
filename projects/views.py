@@ -6,10 +6,10 @@ from projects.forms import CreateProjectForm
 
 # Create your views here.
 @login_required
-def project_list(request):
-    project_list = Project.objects.filter(owner=request.user)
+def list_projects(request):
+    list_projects = Project.objects.filter(owner=request.user)
     context = {
-        "project_list": project_list,
+        "list_projects": list_projects,
     }
     return render(request, "projects/list.html", context)
 

@@ -5,26 +5,10 @@
 {% endblock title %}
 
 {% block content %}
-    <header>
-        <nav>
-            {% comment %} {% if user.is_authenticated %}
-                <a href="{% url 'create_receipt' %}">Create Receipt</a>
-                <a href="{% url 'categories' %}">Categories</a>
-                <a href="{% url 'accounts' %}">Accounts</a>
-                <a href="{% url 'create_category' %}">Create Category</a>
-                <a href="{% url 'create_account' %}">Create Account</a>
-            {% endif %} {% endcomment %}
-        </nav>
-    </header>
     <main>
         <div>
             <h1>My tasks</h1>
-            <p>
-                {% comment %} <a href="{% url 'create_task' %}">Create a new task</a> {% endcomment %}
-                {% comment %} <a href="{% url 'create_project' %}">Create a new project</a> {% endcomment %}
-                {% comment %} <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
-            </p>
-            {% if tasks != None %}
+            {% comment %} {% if tasks != None %} {% endcomment %}
                 <table class="show_my_tasks-table">
                     <thead>
                         <tr>
@@ -47,11 +31,11 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            {% else %}
+            {% comment %} {% else %}
                 <p>
                     You have no tasks
                 </p>
-            {% endif %}
+            {% endif %} {% endcomment %}
         </div>
     </main>
 
