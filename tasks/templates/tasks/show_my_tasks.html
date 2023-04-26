@@ -20,13 +20,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for list in show_my_tasks.items.all %}
+                        {% for list in show_my_tasks %}
                             <tr>
-                                <td><a href="{% url 'show_my_tasks' list.id %}">{{ list.name }}</td>
+                                <td>{{ list.name }}</td>
                                 <td>{{ list.start_date }}</td>
                                 <td>{{ list.due_date }}</td>
                                 <td>{{ list.is_completed.filter|yesno }}</td>
-
                             </tr>
                         {% endfor %}
                     </tbody>
