@@ -23,9 +23,9 @@
                 <a href="{% url 'create_project' %}">Create a new project</a>
                 {% comment %} <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
             </p>
-            {% comment %} {% if projects == None %}
+            {% if projects.count == 0 %}
                 You are not assigned to any projects
-            {% else %} {% endcomment %}
+            {% else %}
                 <table class="list-projects-table">
                     <thead>
                         <tr>
@@ -42,7 +42,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
         </div>
     </main>
 
