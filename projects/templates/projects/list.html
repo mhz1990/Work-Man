@@ -3,7 +3,6 @@
 {% block title %}
     Projects
 {% endblock title %}
-
 {% block content %}
     <header>
         <nav>
@@ -36,14 +35,15 @@
                     <tbody>
                         {% for list in list_projects %}
                             <tr>
-                                <td><a href="{% url 'show_project' list.id %}">{{ list.name }}</td>
-                                <td>{{ list.tasks.count }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
-        </div>
-    </main>
-
-{% endblock content %}
+                                <td>
+                                    <a href="{% url 'show_project' list.id %}">{{ list.name }}
+                                    </td>
+                                    <td>{{ list.tasks.count }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </main>
+    {% endblock content %}

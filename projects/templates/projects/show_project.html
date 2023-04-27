@@ -3,7 +3,6 @@
 {% block title %}
     Projects
 {% endblock title %}
-
 {% block content %}
     <header>
         <nav>
@@ -25,34 +24,31 @@
                 {% comment %} <a href="{% url 'todo_list_update' todo_list_update.id %}">Update an existing list</a> {% endcomment %}
             </p>
             {% comment %} {% if tasks != None %} {% endcomment %}
-                <table class="show_project-table">
-                    <thead>
+            <table class="show_project-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Assignee</th>
+                        <th>Start date</th>
+                        <th>Due date</th>
+                        <th>Is completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for list in list_projects %}
                         <tr>
-                            <th>Name</th>
-                            <th>Assignee</th>
-                            <th>Start date</th>
-                            <th>Due date</th>
-                            <th>Is completed</th>
-
+                            {% comment %} <td><a href="{% url 'show_project' list.id %}">{{ list.name }}</td> {% endcomment %}
+                            <td>{{ list.assignee }}</td>
+                            <td>{{ list.start_date }}</td>
+                            <td>{{ list.due_date }}</td>
+                            <td>{{ list.is_completed }}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {% for list in list_projects.items.all %}
-                            <tr>
-                                <td><a href="{% url 'show_project' list.id %}">{{ list.name }}</td>
-                                <td>{{ list.assignee }}</td>
-                                <td>{{ list.start_date }}</td>
-                                <td>{{ list.due_date }}</td>
-                                <td>{{ list.is_completed }}</td>
-
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    {% endfor %}
+                </tbody>
+            </table>
             {% comment %} {% else %}
                 This project has no tasks
             {% endif %} {% endcomment %}
         </div>
     </main>
-
 {% endblock content %}
