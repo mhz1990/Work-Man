@@ -34,10 +34,8 @@
                     </thead>
                     <tbody>
                         {% for list in list_projects %}
-                            <tr>
-                                <td>
-                                    <a href="{% url 'show_project' list.id %}">{{ list.name }}
-                                    </td>
+                                <tr>
+                                    <td><a href="{% url 'show_project' list.id %}">{{ list.name }}</td>
                                     <td>{{ list.tasks.count }}</td>
                                 </tr>
                             {% endfor %}

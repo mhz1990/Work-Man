@@ -8,7 +8,11 @@
     <main>
         <div>
             <h1>My Tasks</h1>
-            {% comment %} {% if tasks != None %} {% endcomment %}
+            {% if show_my_tasks.count == 0 %}
+                <p>
+                    You have no tasks
+                </p>
+            {% else %}
                 <table class="show_my_tasks-table">
                     <thead>
                         <tr>
@@ -30,11 +34,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
-            {% comment %} {% else %}
-                <p>
-                    You have no tasks
-                </p>
-            {% endif %} {% endcomment %}
+            {% endif %}
         </div>
     </main>
 
