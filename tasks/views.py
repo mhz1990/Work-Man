@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from tasks.forms import CreateTaskForm
 from tasks.models import Task
 
+# from projects.models import Project
+
 # from tasks.models import Task
 
 
@@ -26,7 +28,10 @@ def create_task(request):
 @login_required
 def show_my_tasks(request):
     show_my_tasks = Task.objects.filter(assignee=request.user)
+    # show_my_tasks = Task.objects.filter(project_id=1)
+
     context = {
         "show_my_tasks": show_my_tasks,
+        # "show_my_tasks_2": Task.objects.filter(assignee=request.user),
     }
     return render(request, "tasks/show_my_tasks.html", context)

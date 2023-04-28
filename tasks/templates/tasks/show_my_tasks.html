@@ -3,15 +3,12 @@
 {% block title %}
     My tasks
 {% endblock title %}
-
 {% block content %}
     <main>
         <div>
             <h1>My Tasks</h1>
             {% if show_my_tasks.count == 0 %}
-                <p>
-                    You have no tasks
-                </p>
+                <p>You have no tasks</p>
             {% else %}
                 <table class="show_my_tasks-table">
                     <thead>
@@ -20,7 +17,6 @@
                             <th>Start date</th>
                             <th>Due date</th>
                             <th>Is completed</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -37,5 +33,4 @@
             {% endif %}
         </div>
     </main>
-
 {% endblock content %}

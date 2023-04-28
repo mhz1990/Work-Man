@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+# from tasks.models import Task
+
 # Create your models here.
 
 
@@ -13,6 +15,12 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         null=True,
     )
+    # project_tasks2 = models.ForeignKey(
+    #     "tasks.Task",
+    #     related_name="project_tasks2",
+    #     on_delete=models.CASCADE,
+    #     null=True,
+    # )
 
     def __str__(self):
         return self.name
