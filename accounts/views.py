@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from accounts.forms import LoginForm, SignUpForm
 
 
-# Create your views here.
+# Create all your views here.
 
 
 def user_login(request):
